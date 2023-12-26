@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-microservice-example
+      service: auth
+  template:
+    metadata:
+      labels:
+        app: nodejs-microservice-example
+        service: auth
+    spec:
+      containers:
+        - name: nodejs-microservice-example-auth
+          image: kogab/nodejs-microservice-example-auth
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-srv
+spec:
+  selector:
+    app: nodejs-microservice-example
+    service: auth
+  ports:
+    - name: auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
