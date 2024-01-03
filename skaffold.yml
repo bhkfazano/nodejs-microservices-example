@@ -9,9 +9,9 @@ build:
     push: false
   artifacts:
     - image: kogab/nodejs-microservice-example-auth
-      context: services/auth
+      context: .
       docker:
-        dockerfile: Dockerfile
+        dockerfile: services/auth/Dockerfile
       sync:
         manual:
           - src: 'src/**/*.ts'
