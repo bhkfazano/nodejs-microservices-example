@@ -8,4 +8,6 @@ COPY ./common ../../../common
 
 COPY ./services/auth .
 
+ENV NODE_ENV=development
+
 CMD ["npm", "start"]

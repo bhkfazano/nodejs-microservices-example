@@ -14,6 +14,10 @@ spec:
         app: nodejs-microservice-example
         service: auth
     spec:
+      initContainers:
+          - name: init-db
+            image: busybox:1.28
+            command: ['sh', '-c', 'until nslookup auth-database-srv; do echo waiting for auth-database-srv; sleep 2; done']
       containers:
         - name: nodejs-microservice-example-auth
           image: kogab/nodejs-microservice-example-auth
