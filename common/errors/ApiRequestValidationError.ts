@@ -1,6 +1,6 @@
 import { ValidationError } from "express-validator";
 import { IApiError } from "../interfaces/api-error.interface";
-import { ErrorType } from "../types/error.type";
+import { ErrorType } from "../types/error/error.type";
 import { CustomError } from "./CustomError";
 
 export class ApiRequestValidationError extends CustomError {

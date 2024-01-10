@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-microservice-example
+      service: user
+  template:
+    metadata:
+      labels:
+        app: nodejs-microservice-example
+        service: user
+    spec:
+      initContainers:
+          - name: init-db
+            image: busybox:1.28
+            command: ['sh', '-c', 'until nslookup user-database-srv; do echo waiting for user-database-srv; sleep 2; done']
+      containers:
+        - name: nodejs-microservice-example-user
+          image: kogab/nodejs-microservice-example-user
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-srv
+spec:
+  selector:
+    app: nodejs-microservice-example
+    service: user
+  ports:
+    - name: user
+      protocol: TCP
+      port: 50051
+      targetPort: 50051

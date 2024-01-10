@@ -16,3 +16,12 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: kogab/nodejs-microservice-example-user
+      context: .
+      docker:
+        dockerfile: services/user/Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+        

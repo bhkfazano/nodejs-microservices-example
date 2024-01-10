@@ -1,5 +1,5 @@
 import { IApiError } from "../interfaces/api-error.interface";
-import { ErrorType } from "../types/error.type";
+import { ErrorType } from "../types/error/error.type";
 
 export class CustomError extends Error {
     constructor(

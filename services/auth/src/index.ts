@@ -19,5 +19,5 @@ app.use(errorHandler);
 
 
 app.listen(3000, () => {
-    console.log('Auth Service: Listening on port 3000');
+    console.log('Auth Service [REST]: Server running on port 3000');
 });

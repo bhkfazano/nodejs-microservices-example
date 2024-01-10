@@ -1,5 +1,5 @@
 import { IValidationError } from './validation-error.interface';
-import { ErrorType } from '../types/error.type';
+import { ErrorType } from '../types/error/error.type';
 
 export interface IApiError {
     statusCode: number;

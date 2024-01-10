@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grpc-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+spec:
+  rules:
+    - host: nodejs.microservices.example.dev
+      http:
+        paths:
+          - path: /com.kogab.microservices.user.UserSvc/
+            pathType: Prefix
+            backend:
+              service:
+                name: user-srv
+                port:
+                  number: 50051

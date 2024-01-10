@@ -1,0 +1,21 @@
+syntax = "proto3";
+package com.kogab.microservices.user;
+
+service UserSvc {
+    rpc create (CreaterRequest) returns (UserResponse);
+    rpc getUser (GetUserRequest) returns (UserResponse);
+}
+
+message GetUserRequest {
+    int32 id = 1;
+}
+
+message CreaterRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message UserResponse {
+    int32 id = 1;
+    string email = 2;
+}

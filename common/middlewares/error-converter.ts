@@ -2,7 +2,7 @@ import httpStatus from "http-status";
 import { NextFunction, Request, Response } from "express";
 
 import { CustomError } from "../errors/CustomError";
-import { ErrorType } from "../types/error.type";
+import { ErrorType } from "../types/error/error.type";
 
 
 export const errorConverter = (err: Error, req: Request, res: Response, next: NextFunction) => {
