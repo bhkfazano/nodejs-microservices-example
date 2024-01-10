@@ -58,5 +58,5 @@ spec:
     service: user-database
   ports:
     - protocol: TCP
-      port: 5433
+      port: 5431
       targetPort: 5432
