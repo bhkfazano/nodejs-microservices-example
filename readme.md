@@ -9,3 +9,14 @@ The goal of this project is to implement a simple set of microservices using Nod
 ## Infrastructure and Deployment
 
 The services are deployed on a Kubernetes cluster, with each service having its own deployment configuration file. `Scaffold` is used to keep images updated on development environment (like a hot-reload for k8s).
+
+### Secrets
+
+To create the needed secrets on the cluster run:
+
+```
+kubectl create secret generic [secret-name] --from-literal=[secret-key]=[secret-value]
+```
+
+Needed secrets:
+- JWT_SECRET
